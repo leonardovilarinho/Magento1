@@ -94,6 +94,17 @@ RUN wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman 
 
 RUN	curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
 
+# Install Node and Yarn
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y nodejs
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install yarn
+RUN echo 'export PATH="$PATH:$(yarn global bin)"' >> ~/.bashrc
+
+# Install Vue-CLI
+RUN yarn global add @vue/cli @vue/cli-init
+
 # To SSH
 # RUN /usr/sbin/sshd
 # Configuring system
@@ -108,6 +119,6 @@ RUN ln -s /etc/apache2/sites-available/magento.conf /etc/apache2/sites-enabled/m
 
 VOLUME ["/var/www/html"]
 WORKDIR /var/www/html
-COPY ./src /var/www/html
+COPY ./magento /var/www/html
 
 CMD ["apache2-foreground", "-DFOREGROUND"]

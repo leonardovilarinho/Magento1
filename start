@@ -4,11 +4,21 @@ echo "
 ===================== 🚀 Done 🚀 ===================
 
       Created by Rafael Corrêa Gomes
+      Edited by Leonardo Vilarinho
       
       Access your new links:
 
-      🌎 Web server: http://localhost/
-      ⚙️ PHPMyAdmin: http://localhost:8080
-      ✉️ Local emails: http://localhost:8025
+      Web server   : http://localhost/
+      Magento      : http://localhost/magento
+      Vue PWA      : http://localhost:8080
+      PHPMyAdmin   : http://localhost:8000
+      Local emails : http://localhost:8025
+
+      NOTE: If you are running this for the
+      first time, run:
+
+      vue init pwa .
+      yarn
+      yarn dev
 
 ===================== 🚀 Done 🚀 ==================="
