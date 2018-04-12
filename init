@@ -18,13 +18,13 @@ fi
 rm -rf .git
 git init
 
-if [ ! -e src/index.php ]; then
-  echo "<?php phpinfo();" > src/index.php;
+if [ ! -e magento/index.php ]; then
+  echo "<?php phpinfo();" > magento/index.php;
 fi
 
-if [ -d src/app/etc ]; then  
-  if [ ! -e src/app/etc/local.xml ]; then
-    cp -rv .docker/users/local.xml.sample src/app/etc/local.xml;
+if [ -d magento/app/etc ]; then  
+  if [ ! -e magento/app/etc/local.xml ]; then
+    cp -rv .docker/users/local.xml.sample magento/app/etc/local.xml;
   fi
 fi
 
